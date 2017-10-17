@@ -22,15 +22,15 @@ public class TestEntityDao {
         Answer option3 = new Answer(3, "3");
         Answer option4 = new Answer(4, "4");
 
-        Answer option11 = new Answer(1, "Moscow");
-        Answer option22 = new Answer(2, "Tokyo");
-        Answer option33 = new Answer(3, "London");
-        Answer option44 = new Answer(4, "New York");
+        Answer option11 = new Answer(5, "Moscow");
+        Answer option22 = new Answer(6, "Tokyo");
+        Answer option33 = new Answer(7, "London");
+        Answer option44 = new Answer(8, "New York");
 
-        Answer option111 = new Answer(1, "red");
-        Answer option222 = new Answer(2, "green");
-        Answer option333 = new Answer(3, "blue");
-        Answer option444 = new Answer(4, "white");
+        Answer option111 = new Answer(9, "red");
+        Answer option222 = new Answer(10, "green");
+        Answer option333 = new Answer(11, "blue");
+        Answer option444 = new Answer(12, "white");
 
         answers1.add(option1);
         answers1.add(option2);
