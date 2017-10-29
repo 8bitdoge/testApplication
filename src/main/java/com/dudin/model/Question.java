@@ -3,12 +3,41 @@ package com.dudin.model;
 import java.util.List;
 
 public class Question extends BaseEntity {
-    private String question;
-    private List<Answer> answerList;
-    private Answer correctAnswer;
 
-    public Question(int id) {
+    private int questionID;
+    private List<Answer> answerList;
+    private int testID;
+    private String question;
+
+    public Question(int id, int questionID, List<Answer> answerList, int testID, String question) {
         super(id);
+        this.questionID = questionID;
+        this.answerList = answerList;
+        this.testID = testID;
+        this.question = question;
+    }
+
+    public int getQuestionID() {
+        return questionID;
+    }
+
+    public void setQuestionID(int questionID) {
+        this.questionID = questionID;
+    }
+
+
+    public int getTestID() {
+        return testID;
+    }
+
+    public void setTestID(int testID) {
+        this.testID = testID;
+    }
+
+    public Question(int id, String question, int testID) {
+        super(id);
+        this.question = question;
+        this.testID = testID;
     }
 
     public Question(int id, String question) {
@@ -22,11 +51,11 @@ public class Question extends BaseEntity {
         this.answerList = answerList;
     }
 
-    public Question(int id, String question, List<Answer> answerList, Answer correctAnswer) {
+    public Question(int id, String question, List<Answer> answerList, int test_id) {
         super(id);
         this.question = question;
         this.answerList = answerList;
-        this.correctAnswer = correctAnswer;
+        this.testID = test_id;
     }
 
     public String getQuestion() {
@@ -45,13 +74,8 @@ public class Question extends BaseEntity {
         this.answerList = answerList;
     }
 
-    public Answer getCorrectAnswer() {
-        return correctAnswer;
-    }
 
-    public void setCorrectAnswer(Answer correctAnswer) {
-        this.correctAnswer = correctAnswer;
-    }
+
 
     @Override
     public String toString() {
