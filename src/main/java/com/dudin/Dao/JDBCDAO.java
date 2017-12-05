@@ -1,5 +1,6 @@
 package com.dudin.Dao;
 
+import com.dudin.jdbc.datasource.DBCPDataSourceFactory;
 import com.dudin.model.Answer;
 import com.dudin.model.Question;
 import com.dudin.model.TestEntity;
@@ -10,10 +11,8 @@ import java.util.List;
 
 public class JDBCDAO {
 
-    private static final String DB_URL = "jdbc:mysql://localhost/testapplication";
 
-    private static final String USER = "root";
-    private static final String PASS = "!@#$%^";
+    DBCPDataSourceFactory dataSourceFactory = new DBCPDataSourceFactory();
 
     public TestEntity getTestEntity(String testID) {
 
@@ -26,7 +25,7 @@ public class JDBCDAO {
         TestEntity testEntity = null;
         try {
 
-            connection = DriverManager.getConnection(DB_URL, USER, PASS);
+            connection = dataSourceFactory.getDataSource("mysql").getConnection();
             statement = connection.createStatement();
 
             String sqlTest = "SELECT * FROM test AS t WHERE t.test_id = " + testID;
@@ -79,14 +78,11 @@ public class JDBCDAO {
                         question.setAnswerList(answerList);
                 }
             }
-//            questionsList
             testEntity.setQuestionsList(questionsList);
 
 
         } catch (SQLException se) {
             se.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
         } finally {
             try {
                 if (statement != null)
