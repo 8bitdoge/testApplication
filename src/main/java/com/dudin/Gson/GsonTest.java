@@ -10,8 +10,7 @@ import com.google.gson.GsonBuilder;
  * Created by 8bitdoge on 16.11.2017.
  */
 public class GsonTest {
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-
+   
     public TestEntity getGsonTest(String testNumber) {
         JDBCDAO tmpTest = new JDBCDAO();
 
